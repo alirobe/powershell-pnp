@@ -60,10 +60,10 @@ Returns the generated Site Script JSON containing all supported components from 
 
 ### EXAMPLE 3
 ```powershell
-Get-PnPSiteScriptFromWeb -Url "https://contoso.sharepoint.com/sites/teamsite" -IncludeAll -Lists "Shared Documents","Lists\MyList"
+Get-PnPSiteScriptFromWeb -Url "https://contoso.sharepoint.com/sites/teamsite" -Lists "Shared Documents","Lists\MyList"
 ```
 
-Returns the generated Site Script JSON containing all supported components from the site at the provided Url including the lists "Shared Documents" and "MyList"
+Returns the generated Site Script JSON containing only the lists "Shared Documents" and "MyList" from the site at the provided Url. Note that combining -Lists with -IncludeAll has no effect, as -IncludeAll already includes all applicable lists and the values passed to -Lists will be ignored.
 
 ### EXAMPLE 4
 ```powershell
@@ -79,7 +79,7 @@ Get-PnPSiteScriptFromWeb -IncludeAllLists
 
 Returns the generated Site Script JSON containing all lists from the currently connected to site
 
-### EXAMPLE 5
+### EXAMPLE 6
 ```powershell
 Get-PnPSiteScriptFromWeb -IncludeAllLists | Add-PnPSiteScript -Title "My Site Script" | Add-PnPSiteDesign -Title "My Site Design" -WebTemplate TeamSite
 ```
